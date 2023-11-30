@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import ViewJob from './components/view/ViewJob.vue'
+import CandlestickChart from './components/view/CandlestickChart.vue'
 </script>
 
 <template>
@@ -16,16 +17,18 @@ import ViewJob from './components/view/ViewJob.vue'
         </div>
     </header>
     <RouterView /> -->
-    <div  class="view">
+    <div  class="app">
         <ViewJob />
+        <CandlestickChart />
     </div>
 </template>
 
 <style scoped>
-.view {
+.app {
     width: 100vw;
     height: 100vh;
-    background-color: black;
+    background-color: blueviolet;
+    color: aqua;
 }
 /* header {
     line-height: 1.5;

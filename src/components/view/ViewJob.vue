@@ -10,11 +10,13 @@
 </script>
 
 <template>
-    <div class=".view ">111</div>
+    <div class="view ">11qwerqwfasf内容asf1</div>
 </template>
 
-<style>
+<style scoped>
 .view {
-    color: red;
+    margin: 50px;
+    background-color: red;
+    color: white;
 }
 </style>
