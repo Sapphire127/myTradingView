@@ -8,7 +8,7 @@ import { ref } from 'vue';
  *
  * Select your preferred style from the imports below:
  */
-// import LWChart from './components/view/composition-api/LWChart.vue';
+// import LWChart from './composition-api/LWChart.vue';
 import LWChart from './options-api/LWChart.vue';
 
 /**
