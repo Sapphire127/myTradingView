@@ -64,7 +64,7 @@ function generateSampleData(ohlc) {
 }
 
 const chartOptions = ref({});
-const data = ref(generateSampleData(false));
+const data = ref(generateSampleData(true));
 const seriesOptions = ref({
 	color: 'rgb(45, 77, 205)',
 });
@@ -80,23 +80,6 @@ const randomColor = (alpha = 1) => {
 };
 
 const colorsTypeMap = {
-	area: [
-		['topColor', 0.4],
-		['bottomColor', 0],
-		['lineColor', 1],
-	],
-	bar: [
-		['upColor', 1],
-		['downColor', 1],
-	],
-	baseline: [
-		['topFillColor1', 0.28],
-		['topFillColor2', 0.05],
-		['topLineColor', 1],
-		['bottomFillColor1', 0.28],
-		['bottomFillColor2', 0.05],
-		['bottomLineColor', 1],
-	],
 	candlestick: [
 		['upColor', 1],
 		['downColor', 1],
@@ -104,9 +87,7 @@ const colorsTypeMap = {
 		['borderDownColor', 1],
 		['wickUpColor', 1],
 		['wickDownColor', 1],
-	],
-	histogram: [['color', 1]],
-	line: [['color', 1]],
+	]
 };
 
 // Set a random colour for the series as an example of how
@@ -122,33 +103,13 @@ const changeColors = () => {
 };
 
 const changeData = () => {
-	const candlestickTypeData = ['candlestick', 'bar'].includes(chartType.value);
-	const newData = generateSampleData(candlestickTypeData);
-	data.value = newData;
-	if (chartType.value === 'baseline') {
-		const average =
-			newData.reduce((s, c) => {
-				return s + c.value;
-			}, 0) / newData.length;
-		seriesOptions.value = { baseValue: { type: 'price', price: average } };
-	}
-};
+	data.value = generateSampleData('candlestick');
 
-const changeType = () => {
-	const types = [
-		// 'line',
-		// 'area',
-		// 'baseline',
-		// 'histogram',
-		'candlestick',
-		// 'bar',
-	].filter(t => t !== chartType.value);
-	const randIndex = Math.round(Math.random() * (types.length - 1));
-	chartType.value = types[randIndex];
-	changeData();
-
-	// call a method on the component.
-	lwChart.value.fitContent();
+    const average =
+        newData.reduce((s, c) => {
+            return s + c.value;
+        }, 0) / newData.length;
+    seriesOptions.value = { baseValue: { type: 'price', price: average } };
 };
 </script>
 
@@ -164,11 +125,12 @@ const changeType = () => {
 		/>
 	</div>
 	<button type="button" @click="changeColors">Set Random Colors</button>
-	<button type="button" @click="changeType">Change Chart Type</button>
 	<button type="button" @click="changeData">Change Data</button>
 </template>
 <style scoped>
 .chart-container {
-	height: calc(100% - 3.2em);
+    width: 1000px;
+	height: 800px;
+    margin: 0 auto;
 }
 </style>
