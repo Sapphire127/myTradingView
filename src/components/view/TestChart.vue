@@ -71,36 +71,9 @@ const seriesOptions = ref({
 const chartType = ref('candlestick');
 const lwChart = ref();
 
-function randomShade() {
-	return Math.round(Math.random() * 255);
-}
-
-const randomColor = (alpha = 1) => {
-	return `rgba(${randomShade()}, ${randomShade()}, ${randomShade()}, ${alpha})`;
-};
-
-const colorsTypeMap = {
-	candlestick: [
-		['upColor', 1],
-		['downColor', 1],
-		['borderUpColor', 1],
-		['borderDownColor', 1],
-		['wickUpColor', 1],
-		['wickDownColor', 1],
-	]
-};
-
 // Set a random colour for the series as an example of how
 // to apply new options to series. A similar appraoch will work on the
 // option properties.
-const changeColors = () => {
-	const options = {};
-	const colorsToSet = colorsTypeMap[chartType.value];
-	colorsToSet.forEach(c => {
-		options[c[0]] = randomColor(c[1]);
-	});
-	seriesOptions.value = options;
-};
 
 const changeData = () => {
 	data.value = generateSampleData('candlestick');
@@ -124,7 +97,6 @@ const changeData = () => {
 			ref="lwChart"
 		/>
 	</div>
-	<button type="button" @click="changeColors">Set Random Colors</button>
 	<button type="button" @click="changeData">Change Data</button>
 </template>
 <style scoped>
