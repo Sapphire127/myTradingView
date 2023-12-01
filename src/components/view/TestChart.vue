@@ -74,16 +74,6 @@ const lwChart = ref();
 // Set a random colour for the series as an example of how
 // to apply new options to series. A similar appraoch will work on the
 // option properties.
-
-const changeData = () => {
-	data.value = generateSampleData('candlestick');
-
-    const average =
-        newData.reduce((s, c) => {
-            return s + c.value;
-        }, 0) / newData.length;
-    seriesOptions.value = { baseValue: { type: 'price', price: average } };
-};
 </script>
 
 <template>
@@ -97,7 +87,6 @@ const changeData = () => {
 			ref="lwChart"
 		/>
 	</div>
-	<button type="button" @click="changeData">Change Data</button>
 </template>
 <style scoped>
 .chart-container {
