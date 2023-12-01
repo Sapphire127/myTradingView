@@ -68,7 +68,7 @@ const data = ref(generateSampleData(false));
 const seriesOptions = ref({
 	color: 'rgb(45, 77, 205)',
 });
-const chartType = ref('line');
+const chartType = ref('candlestick');
 const lwChart = ref();
 
 function randomShade() {
@@ -136,12 +136,12 @@ const changeData = () => {
 
 const changeType = () => {
 	const types = [
-		'line',
-		'area',
-		'baseline',
-		'histogram',
+		// 'line',
+		// 'area',
+		// 'baseline',
+		// 'histogram',
 		'candlestick',
-		'bar',
+		// 'bar',
 	].filter(t => t !== chartType.value);
 	const randIndex = Math.round(Math.random() * (types.length - 1));
 	chartType.value = types[randIndex];

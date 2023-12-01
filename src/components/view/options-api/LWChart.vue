@@ -29,7 +29,7 @@ export default {
 	props: {
 		type: {
 			type: String,
-			default: 'line',
+			default: 'candlestick',
 		},
 		data: {
 			type: Array,

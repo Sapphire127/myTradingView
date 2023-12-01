@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import ViewJob from './components/view/ViewJob.vue'
+import TestChart from './components/view/TestChart.vue'
 import CandlestickChart from './components/view/CandlestickChart.vue'
 </script>
 
@@ -19,7 +20,8 @@ import CandlestickChart from './components/view/CandlestickChart.vue'
     <RouterView /> -->
     <div  class="app">
         <ViewJob />
-        <CandlestickChart />
+        <TestChart />
+        <!-- <CandlestickChart /> -->
     </div>
 </template>
 
