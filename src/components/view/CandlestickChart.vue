@@ -1,24 +1,75 @@
 <script setup>
-// Lightweight Charts™ Example: Series Markers
-// https://tradingview.github.io/lightweight-charts/tutorials/how_to/series-markers
-import { createChart } from 'lightweight-charts';
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import { ref } from 'vue';
 
-const chartOptions = { layout: { textColor: 'black', background: { type: 'solid', color: 'white' } } };
-const chart = createChart(document.getElementById('container'), chartOptions);
-const candlestickSeries = chart.addCandlestickSeries({ upColor: '#26a69a', downColor: '#ef5350', borderVisible: false, wickUpColor: '#26a69a', wickDownColor: '#ef5350' });
+/*
+ * There are example components in both API styles: Options API, and Composition API
+ *
+ * Select your preferred style from the imports below:
+ */
+// import LWChart from './composition-api/LWChart.vue';
+import LWChart from './options-api/LWChart.vue';
 
-const data = [{ open: 10, high: 10.63, low: 9.49, close: 9.55, time: 1642427876 }, { open: 9.55, high: 10.30, low: 9.42, close: 9.94, time: 1642514276 }, { open: 9.94, high: 10.17, low: 9.92, close: 9.78, time: 1642600676 }, { open: 9.78, high: 10.59, low: 9.18, close: 9.51, time: 1642687076 }, { open: 9.51, high: 10.46, low: 9.10, close: 10.17, time: 1642773476 }, { open: 10.17, high: 10.96, low: 10.16, close: 10.47, time: 1642859876 }, { open: 10.47, high: 11.39, low: 10.40, close: 10.81, time: 1642946276 }, { open: 10.81, high: 11.60, low: 10.30, close: 10.75, time: 1643032676 }, { open: 10.75, high: 11.60, low: 10.49, close: 10.93, time: 1643119076 }, { open: 10.93, high: 11.53, low: 10.76, close: 10.96, time: 1643205476 }];
+/**
+ * Generates sample data for the Lightweight Charts™ example
+ * @returns {Array} sample data
+ */
+function generateSampleData() {
+	var res = [
+        { time: '2018-10-19', open: 54.62, high: 55.50, low: 54.52, close: 54.90 },
+        { time: '2018-10-22', open: 55.08, high: 55.27, low: 54.61, close: 54.98 },
+        { time: '2018-10-23', open: 56.09, high: 57.47, low: 56.09, close: 57.21 },
+        { time: '2018-10-24', open: 57.00, high: 58.44, low: 56.41, close: 57.42 },
+        { time: '2018-10-25', open: 57.46, high: 57.63, low: 56.17, close: 56.43 },
+        { time: '2018-10-26', open: 56.26, high: 56.62, low: 55.19, close: 55.51 },
+        { time: '2018-10-29', open: 55.81, high: 57.15, low: 55.72, close: 56.48 },
+        { time: '2018-10-30', open: 56.92, high: 58.80, low: 56.92, close: 58.18 },
+        { time: '2018-10-31', open: 58.32, high: 58.32, low: 56.76, close: 57.09 },
+        { time: '2018-11-01', open: 56.98, high: 57.28, low: 55.55, close: 56.05 },
+        { time: '2018-11-02', open: 56.34, high: 57.08, low: 55.92, close: 56.63 },
+        { time: '2018-11-05', open: 56.51, high: 57.45, low: 56.51, close: 57.21 },
+        { time: '2018-11-06', open: 57.02, high: 57.35, low: 56.65, close: 57.21 },
+        { time: '2018-11-07', open: 57.55, high: 57.78, low: 57.03, close: 57.65 },
+        { time: '2018-11-08', open: 57.70, high: 58.44, low: 57.66, close: 58.27 },
+        { time: '2018-11-09', open: 58.32, high: 59.20, low: 57.94, close: 58.46 },
+        { time: '2018-11-12', open: 58.84, high: 59.40, low: 58.54, close: 58.72 },
+        { time: '2018-11-13', open: 59.09, high: 59.14, low: 58.32, close: 58.66 },
+        { time: '2018-11-14', open: 59.13, high: 59.32, low: 58.41, close: 58.94 },
+        { time: '2018-11-15', open: 58.85, high: 59.09, low: 58.45, close: 59.08 },
+    ];
+	return res;
+}
 
-candlestickSeries.setData(data);
+const chartOptions = ref({});
+const data = ref(generateSampleData(true));
+const seriesOptions = ref({
+	color: 'rgb(45, 77, 205)',
+});
+const chartType = ref('candlestick');
+const lwChart = ref();
 
-chart.timeScale().fitContent();
+// Set a random colour for the series as an example of how
+// to apply new options to series. A similar appraoch will work on the
+// option properties.
 </script>
 
 <template>
-	<div class="chart-container" id="container"></div>
+	<div class="chart-container">
+		<LWChart
+			:type="chartType"
+			:data="data"
+			:autosize="true"
+			:chart-options="chartOptions"
+			:series-options="seriesOptions"
+			ref="lwChart"
+		/>
+	</div>
 </template>
 <style scoped>
 .chart-container {
-	height: calc(100% - 3.2em);
+    width: 1000px;
+	height: 500px;
+    margin: 0 auto;
 }
 </style>
