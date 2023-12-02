@@ -5,32 +5,32 @@
     <div class="rightData">
         <div>
             <div class="close">
-                <div class="name">收</div>
-                <div class="number">1762.50</div>
+                <div class="rightViewName">收</div>
+                <div class="rightViewNumber">1762.50</div>
             </div>
             <div class="open">
-                <div class="name">开</div>
-                <div class="number">1755.00</div>
+                <div class="rightViewName">开</div>
+                <div class="rightViewNumber">1755.00</div>
             </div>
         </div>
         <div>
             <div class="low">
-                <div class="name">低</div>
-                <div class="number">1769.50</div>
+                <div class="rightViewName">低</div>
+                <div class="rightViewNumber">1769.50</div>
             </div>
             <div class="high">
-                <div class="name">高</div>
-                <div class="number">1736.66</div>
+                <div class="rightViewName">高</div>
+                <div class="rightViewNumber">1736.66</div>
             </div>
         </div>
         <div>
             <div class="money">
-                <div class="name">额</div>
-                <div class="number">32.66亿</div>
+                <div class="rightViewName">额</div>
+                <div class="rightViewNumber">32.66亿</div>
             </div>
             <div class="time">
-                <div class="name">时</div>
-                <div class="number">2023/11/20</div>
+                <div class="rightViewName">时</div>
+                <div class="rightViewNumber">2023/11/20</div>
             </div>
         </div>
     </div>
@@ -55,14 +55,14 @@
     display:inline;
 }
 
-.name {
+.rightViewName {
     margin-right: 10px;
     color: gray;
     float:left;
     display:inline;
 }
 
-.number {
+.rightViewNumber {
     width: 150px;
     float:left;
     display:inline;
