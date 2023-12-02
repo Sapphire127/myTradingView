@@ -56,6 +56,39 @@ export default {
 		// Create the Lightweight Charts Instance using the container ref.
 		chart = createChart(this.$refs.chartContainer, this.chartOptions);
 		addSeriesAndData(this.type, this.seriesOptions, this.data);
+        chart.addLineSeries({
+        color: 'rgba(4, 111, 232, 1)',
+        lineWidth: 2,
+        }).setData([
+            { time: {year: 2018, month: 10, day: 19}, value: 37.401446370157814 },
+            { time: {year: 2018, month: 10, day: 20}, value: 44.14728329801845 },
+            { time: {year: 2018, month: 10, day: 21}, value: 43.908512951087765 },
+            { time: {year: 2018, month: 10, day: 22}, value: 47.139711966410914 },
+            { time: {year: 2018, month: 10, day: 23}, value: 43.78495537329606 },
+            { time: {year: 2018, month: 10, day: 24}, value: 46.37910782721347 },
+            { time: {year: 2018, month: 10, day: 25}, value: 48.280192310089234 },
+            { time: {year: 2018, month: 10, day: 26}, value: 49.63767420501933 },
+            { time: {year: 2018, month: 10, day: 27}, value: 43.05752682224708 },
+            { time: {year: 2018, month: 10, day: 28}, value: 48.32708061157758 },
+            { time: {year: 2018, month: 10, day: 29}, value: 53.39600337663517 },
+            { time: {year: 2018, month: 10, day: 30}, value: 46.711006266435355 },
+            { time: {year: 2018, month: 10, day: 31}, value: 54.13809826985657 },
+            { time: {year: 2018, month: 11, day: 1}, value: 55.79021790616995 },
+            { time: {year: 2018, month: 11, day: 2}, value: 49.2873885580548 },
+            { time: {year: 2018, month: 11, day: 3}, value: 56.97009522871737 },
+            { time: {year: 2018, month: 11, day: 4}, value: 50.823930530973975 },
+            { time: {year: 2018, month: 11, day: 5}, value: 54.960060077375076 },
+            { time: {year: 2018, month: 11, day: 6}, value: 62.0222568413422 },
+            { time: {year: 2018, month: 11, day: 7}, value: 58.20081640960216 },
+            { time: {year: 2018, month: 11, day: 8}, value: 65.13004590769961 },
+            { time: {year: 2018, month: 11, day: 9}, value: 57.78891076252559 },
+            { time: {year: 2018, month: 11, day: 10}, value: 58.792896124952186 },
+            { time: {year: 2018, month: 11, day: 11}, value: 61.87890147945707 },
+            { time: {year: 2018, month: 11, day: 12}, value: 60.93156560716248 },
+            { time: {year: 2018, month: 11, day: 13}, value: 57.85928164082374 },
+            { time: {year: 2018, month: 11, day: 14}, value: 70.95139577968187 },
+            { time: {year: 2018, month: 11, day: 15}, value: 71.59735270974251 }
+        ]);
 
 		if (this.priceScaleOptions) {
 			chart.priceScale().applyOptions(this.priceScaleOptions);
@@ -105,12 +138,6 @@ export default {
 			window.addEventListener('resize', () =>
 				resizeHandler(this.$refs.chartContainer)
 			);
-		},
-		type(newType) {
-			if (series && chart) {
-				chart.removeSeries(series);
-			}
-			addSeriesAndData(this.type, this.seriesOptions, this.data);
 		},
 		data(newData) {
 			if (!series) return;
