@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import { ref } from 'vue';
@@ -42,7 +42,7 @@ function generateSampleData() {
 }
 
 const chartOptions = ref({});
-const data = ref(generateSampleData(true));
+const data = ref(generateSampleData());
 const seriesOptions = ref({
 	color: 'rgb(45, 77, 205)',
 });
@@ -68,8 +68,8 @@ const lwChart = ref();
 </template>
 <style scoped>
 .chart-container {
-    width: 1000px;
-	height: 500px;
+    width: calc(100vw - 100px);
+	height: 400px;
     margin: 0 auto;
 }
 </style>

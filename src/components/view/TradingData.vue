@@ -1,15 +1,20 @@
 <script setup lang="ts">
+import LeftData from './LeftData.vue';
+import RightData from './RightData.vue';
 </script>
 
 <template>
-    <div class="view ">11qwerqwfasf内容asf1</div>
+    <div class="data">
+        <LeftData />
+        <RightData />
+    </div>
 </template>
 
 <style scoped>
-.view {
+.data {
+    width: calc(100vw - 100px);
     height: 100px;
     margin: 0 50px;
-    background-color: red;
     color: white;
 }
 </style>

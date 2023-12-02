@@ -57,8 +57,8 @@ export default {
 		chart = createChart(this.$refs.chartContainer, this.chartOptions);
 		addSeriesAndData(this.type, this.seriesOptions, this.data);
         chart.addLineSeries({
-        color: 'rgba(4, 111, 232, 1)',
-        lineWidth: 2,
+            color: 'rgba(4, 111, 232, 1)',
+            lineWidth: 2,
         }).setData([
             { time: {year: 2018, month: 10, day: 19}, value: 37.401446370157814 },
             { time: {year: 2018, month: 10, day: 20}, value: 44.14728329801845 },
