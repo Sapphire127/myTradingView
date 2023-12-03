@@ -1,6 +1,6 @@
 <script>
 import { createChart } from 'lightweight-charts';
-import { fetchQuotes } from '../mockData.ts';
+import { turnoverChartData } from '../turnoverChartData';
 import { ref } from 'vue';
 
 // Lightweight Chart instances are stored as normal JS variables
@@ -17,7 +17,7 @@ const resizeHandler = container => {
 
 const frequency = ref("10m");
 
-const data = fetchQuotes("", frequency.value, "", "");
+const data = turnoverChartData();
 
 var areaSeries = null;
 
@@ -71,7 +71,7 @@ export default {
 	mounted() {
 		// Create the Lightweight Charts Instance using the container ref.
 		chart = createChart(this.$refs.chartContainer, this.chartOptions);
-        chart.addLineSeries({
+        chart.addHistogramSeries({
             color: 'rgba(4, 111, 232, 1)',
             lineWidth: 2,
         }).setData(data);
