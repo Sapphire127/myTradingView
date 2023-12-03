@@ -1,10 +1,20 @@
 import { candlestickChartData } from './candlestickChartData';
 
-export function turnoverChartData() {
-    const data = candlestickChartData();
+interface Quotes {
+    time: string,
+    open: number,
+    high: number,
+    low: number,
+    close: number,
+    money: number,
+    volume: number
+}
+
+export function turnoverChartData(frequency: string) {
+    const data = candlestickChartData(frequency) as Quotes[];
     const arr: { time: string; value: number }[] = [];
     data.forEach(function(item) {
-        arr.push({ time: item.time, value: item.volume / 100000 })
+        arr.push({ time: item.time, value: item.volume / 10000 })
     });
 
 	return arr;

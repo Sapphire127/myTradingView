@@ -1,11 +1,12 @@
 <script>
 import { createChart } from 'lightweight-charts';
 import { turnoverChartData } from '../turnoverChartData';
+
 // Lightweight Chart instances are stored as normal JS variables
 // If you need to use a ref then it is recommended that you use `shallowRef` instead
 let series;
 let chart;
-const turnoverData = turnoverChartData();
+
 // Function to get the correct series constructor name for current series type.
 function getChartSeriesConstructorName(type) {
 	return `add${type.charAt(0).toUpperCase() + type.slice(1)}Series`;
@@ -42,7 +43,22 @@ export default {
 		seriesOptions: {
 			type: Object,
 		},
+        frequency: {
+            type: String
+        },
 	},
+    setup() {
+        function getData() {
+            addSeriesAndData(this.$refs.type, this.$refs.seriesOptions, this.$refs.data);
+            chart.addHistogramSeries({
+                color: 'rgba(4, 111, 232, 1)',
+                lineWidth: 2,
+            }).setData(turnoverChartData(this.$refs.frequency));
+        }
+        return {
+            getData
+        }
+    },
 	mounted() {
 		// Create the Lightweight Charts Instance using the container ref.
 		chart = createChart(this.$refs.chartContainer, this.chartOptions);
@@ -50,7 +66,7 @@ export default {
         chart.addHistogramSeries({
             color: 'rgba(4, 111, 232, 1)',
             lineWidth: 2,
-        }).setData(turnoverData);
+        }).setData(turnoverData(this.$refs.frequency));
 
 		chart.timeScale().fitContent();
 

@@ -16,7 +16,10 @@ import LWChart from './options-api/LWChart.vue';
  * @returns {Array} sample data
  */
 
-const data = ref(candlestickChartData());
+const props = defineProps ({
+    frequency: String,
+})
+const data = ref(candlestickChartData(props.frequency));
 const seriesOptions = ref({
 	color: 'rgb(45, 77, 205)',
 });
@@ -34,6 +37,7 @@ const chartType = ref('candlestick');
 			:data="data"
 			:autosize="true"
 			:series-options="seriesOptions"
+            :frequency="props.frequency"
 			ref="lwChart"
 		/>
 	</div>

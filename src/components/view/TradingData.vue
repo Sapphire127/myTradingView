@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import LeftData from './LeftData.vue';
 import RightData from './RightData.vue';
+
+defineProps ({
+    frequency: String,
+})
 </script>
 
 <template>
     <div class="data">
         <LeftData />
-        <RightData />
+        <RightData :frequency="$props.frequency" />
     </div>
 </template>
 

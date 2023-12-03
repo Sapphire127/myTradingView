@@ -1,13 +1,28 @@
 <script setup lang="ts">
 import { candlestickChartData } from './candlestickChartData';
+import { ref } from 'vue';
 
-const data = candlestickChartData();
-const close = data[data.length - 1].low;
-const open = data[data.length - 1].open;
-const low = data[data.length - 1].low;
-const high = data[data.length - 1].high;
-const money = data[data.length - 1].money;
-const time = data[data.length - 1].time;
+interface Quotes {
+    time: string,
+    open: number,
+    high: number,
+    low: number,
+    close: number,
+    money: number,
+    volume: number
+}
+
+const props = defineProps ({
+    frequency: String,
+})
+
+const data = candlestickChartData(props.frequency) as Quotes[];
+const close = ref(data[data.length - 1].low);
+const open = ref(data[data.length - 1].open);
+const low = ref(data[data.length - 1].low);
+const high = ref(data[data.length - 1].high);
+const money = ref(data[data.length - 1].money);
+const time = ref(data[data.length - 1].time);
 </script>
 
 <template>
