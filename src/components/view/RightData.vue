@@ -23,6 +23,8 @@ const low = ref(data[data.length - 1].low);
 const high = ref(data[data.length - 1].high);
 const money = ref(data[data.length - 1].money);
 const time = ref(data[data.length - 1].time);
+
+console.log(close.value);
 </script>
 
 <template>

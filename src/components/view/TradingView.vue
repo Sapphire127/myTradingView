@@ -7,19 +7,19 @@ const frequency = ref("10m");
 
 function switchTo10m() {
     frequency.value = "10m";
-    alert(frequency.value);
+    console.log(frequency.value);
 }
 function switchTo1h() {
     frequency.value = "1h";
-    alert(frequency.value )
+    console.log(frequency.value )
 }
 function switchTo1d() {
     frequency.value = "1d";
-    alert(frequency.value )
+    console.log(frequency.value )
 }
 function switchTo1w() {
     frequency.value = "1w";
-    alert(frequency.value )
+    console.log(frequency.value )
 }
 </script>
 

@@ -44,6 +44,7 @@ export default {
 			type: Object,
 		},
         frequency: {
+            default: "10m",
             type: String
         },
 	},
@@ -66,7 +67,11 @@ export default {
         chart.addHistogramSeries({
             color: 'rgba(4, 111, 232, 1)',
             lineWidth: 2,
-        }).setData(turnoverData(this.$refs.frequency));
+            layout: {
+                background: {  color: '#000000' },
+                textColor: '#ffffff'
+            }
+        }).setData(turnoverChartData(this.$refs.frequency));
 
 		chart.timeScale().fitContent();
 
