@@ -1,22 +1,13 @@
-<script setup lang="ts">
+<script setup>
 import { candlestickChartData } from './candlestickChartData';
 import { ref } from 'vue';
-
-interface Quotes {
-    time: string,
-    open: number,
-    high: number,
-    low: number,
-    close: number,
-    money: number,
-    volume: number
-}
+import moment from "moment";
 
 const props = defineProps ({
     frequency: String,
 })
 
-const data = ref(candlestickChartData(props.frequency) as Quotes[]);
+const data = ref(candlestickChartData(props.frequency));
 const nowData = ref(data.value[data.value.length - 1]);
 </script>
 
@@ -49,7 +40,7 @@ const nowData = ref(data.value[data.value.length - 1]);
             </div>
             <div class="time">
                 <div class="rightViewName">时</div>
-                <div class="rightViewNumber">{{ nowData.time }}</div>
+                <div class="rightViewNumber">{{ moment(nowData.time * 1000).format('YYYY-MM-DD') }}</div>
             </div>
         </div>
     </div>
