@@ -1,32 +1,28 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import TradingData from './TradingData.vue';
 import CandlestickChart from './CandlestickChart.vue';
-import { ref } from 'vue';
 
 const frequency = ref("10m");
 
 function switchTo10m() {
     frequency.value = "10m";
-    console.log(frequency.value);
 }
 function switchTo1h() {
     frequency.value = "1h";
-    console.log(frequency.value )
 }
 function switchTo1d() {
     frequency.value = "1d";
-    console.log(frequency.value )
 }
 function switchTo1w() {
     frequency.value = "1w";
-    console.log(frequency.value )
 }
 </script>
 
 <template>
     <div class="tradingView ">
-        <TradingData :frequency="frequency" />
-        <CandlestickChart :frequency="frequency" />
+        <TradingData :frequency="frequency" :key="frequency" />
+        <CandlestickChart :frequency="frequency" :key="frequency" />
         <div class="switchButton">
             <button @click="switchTo10m">10m</button>
             <button @click="switchTo1h">1h</button>

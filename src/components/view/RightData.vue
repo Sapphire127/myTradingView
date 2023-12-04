@@ -16,15 +16,8 @@ const props = defineProps ({
     frequency: String,
 })
 
-const data = candlestickChartData(props.frequency) as Quotes[];
-const close = ref(data[data.length - 1].low);
-const open = ref(data[data.length - 1].open);
-const low = ref(data[data.length - 1].low);
-const high = ref(data[data.length - 1].high);
-const money = ref(data[data.length - 1].money);
-const time = ref(data[data.length - 1].time);
-
-console.log(close.value);
+const data = ref(candlestickChartData(props.frequency) as Quotes[]);
+const nowData = ref(data.value[data.value.length - 1]);
 </script>
 
 <template>
@@ -32,31 +25,31 @@ console.log(close.value);
         <div>
             <div class="close">
                 <div class="rightViewName">收</div>
-                <div class="rightViewNumber">{{ close }}</div>
+                <div class="rightViewNumber">{{ nowData.close }}</div>
             </div>
             <div class="open">
                 <div class="rightViewName">开</div>
-                <div class="rightViewNumber">{{ open }}</div>
+                <div class="rightViewNumber">{{ nowData.open }}</div>
             </div>
         </div>
         <div>
             <div class="low">
                 <div class="rightViewName">低</div>
-                <div class="rightViewNumber">{{ low }}</div>
+                <div class="rightViewNumber">{{ nowData.low }}</div>
             </div>
             <div class="high">
                 <div class="rightViewName">高</div>
-                <div class="rightViewNumber">{{ high }}</div>
+                <div class="rightViewNumber">{{ nowData.high }}</div>
             </div>
         </div>
         <div>
             <div class="money">
                 <div class="rightViewName">额</div>
-                <div class="rightViewNumber">{{ money }}</div>
+                <div class="rightViewNumber">{{ nowData.money }}</div>
             </div>
             <div class="time">
                 <div class="rightViewName">时</div>
-                <div class="rightViewNumber">{{ time }}</div>
+                <div class="rightViewNumber">{{ nowData.time }}</div>
             </div>
         </div>
     </div>
