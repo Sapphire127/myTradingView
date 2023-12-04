@@ -1,9 +1,9 @@
 const mockQuotes10m = [
-	{ time: Date.parse('2018-10-22 09:00') / 1000, open: 180.34, high: 280.00, low: 178.57, close: 280.00, money: 782763.0, volume: 113537.0 },
-	{ time: Date.parse('2018-10-22 09:10') / 1000, open: 280.34, high: 380.34, low: 150.34, close: 150.34, money: 325455.0, volume: 116775.0 },
-	{ time: Date.parse('2018-10-22 09:20') / 1000, open: 150.34, high: 580.99, low: 78.57, close: 380.34, money: 345353.0, volume: 115666.0 },
-	{ time: Date.parse('2018-10-22 09:30') / 1000, open: 380.34, high: 380.34, low: 80.34, close: 80.34, money: 545455.0, volume: 117455.0 },
-	{ time: Date.parse('2018-10-22 09:40') / 1000, open: 80.34, high: 480.99, low: 80.34, close: 100.34, money: 464666.0, volume: 114545.0 },
+	{ time: Date.parse('2018-10-22 09:00') / 1000, open: 200.34, high: 280.00, low: 178.57, close: 180.00, money: 782763.0, volume: 113537.0 },
+	{ time: Date.parse('2018-10-22 09:10') / 1000, open: 180.34, high: 200.34, low: 150.34, close: 150.34, money: 325455.0, volume: 116775.0 },
+	{ time: Date.parse('2018-10-22 09:20') / 1000, open: 150.34, high: 380.99, low: 129.57, close: 300.34, money: 345353.0, volume: 385666.0 },
+	{ time: Date.parse('2018-10-22 09:30') / 1000, open: 298.34, high: 300.34, low: 80.34, close: 80.34, money: 545455.0, volume: 317455.0 },
+	{ time: Date.parse('2018-10-22 09:40') / 1000, open: 80.34, high: 180.99, low: 80.34, close: 100.34, money: 464666.0, volume: 114545.0 },
 	{ time: Date.parse('2018-10-22 09:50') / 1000, open: 100.34, high: 580.99, low: 100.34, close: 179.85, money: 347377.0, volume: 113463.0 },
 ];
 

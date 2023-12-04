@@ -48,18 +48,18 @@ export default {
             type: String
         },
 	},
-    setup() {
-        function getData() {
-            addSeriesAndData(this.$refs.type, this.$refs.seriesOptions, this.$refs.data);
-            chart.addHistogramSeries({
-                color: 'rgba(4, 111, 232, 1)',
-                lineWidth: 2,
-            }).setData(turnoverChartData(this.$refs.frequency));
-        }
-        return {
-            getData
-        }
-    },
+    // setup() {
+    //     function getData() {
+    //         addSeriesAndData(this.$refs.type, this.$refs.seriesOptions, this.$refs.data);
+    //         chart.addHistogramSeries({
+    //             color: 'rgba(4, 111, 232, 1)',
+    //             lineWidth: 2,
+    //         }).setData(turnoverChartData(this.$refs.frequency));
+    //     }
+    //     return {
+    //         getData
+    //     }
+    // },
 	mounted() {
 		// Create the Lightweight Charts Instance using the container ref.
 		chart = createChart(this.$refs.chartContainer, this.chartOptions);
@@ -71,7 +71,7 @@ export default {
                 background: {  color: '#000000' },
                 textColor: '#ffffff'
             }
-        }).setData(turnoverChartData(this.$refs.frequency));
+        }).setData(turnoverChartData(this.frequency));
 
 		chart.timeScale().fitContent();
 

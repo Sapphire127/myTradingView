@@ -13,7 +13,7 @@ interface Quotes {
 export function turnoverChartData(frequency: string) {
     const data = candlestickChartData(frequency) as Quotes[];
     const arr: { time: string; value: number }[] = [];
-    console.log("data is " + data + " frequency is " + frequency);
+    console.log("data is " + JSON.stringify(data) + " frequency is " + frequency);
     if (data) {
         data.forEach(function(item) {
             arr.push({ time: item.time, value: item.volume / 10000 })
