@@ -17,7 +17,7 @@ const resizeHandler = container => {
 
 const frequency = ref("10m");
 
-const data = turnoverChartData();
+const data = turnoverChartData("10m");
 
 var areaSeries = null;
 
