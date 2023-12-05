@@ -65,7 +65,7 @@ export default {
             },
             timeScale: {
                 timeVisible: true,
-            secondsVisible: false,
+                secondsVisible: false,
             },
         });
         addSeriesAndData(this.type, this.seriesOptions, this.data);
@@ -112,6 +112,7 @@ export default {
 		},
 		data(newData) {
 			if (!series) return;
+
             chart.addHistogramSeries({
                 color: 'rgba(4, 111, 232, 1)',
                 lineWidth: 2,
