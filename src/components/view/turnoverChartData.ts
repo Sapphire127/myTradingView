@@ -4,9 +4,9 @@ export function turnoverChartData(data: any) {
 
     if (data) {
         data.forEach(function(item: { time: any; volume: number; }) {
-            arr.push({ time: String(item.time), value: item.volume / 1000000 })
+            arr.push({ time: String(item.time), value: item.volume / 10000000 })
         });
     }
 
 	return arr;
-}
+}//三个时间段分开写

@@ -2,17 +2,18 @@ import { getFund } from './modal/fundService';
 import { dataAdaptation } from './dataAdaptation'
 
 async function get1dQuotes() {
-    const data = await getFund("1664150400", "1669420800", "1d");
+    const data = await getFund("1664150400", "1693353600", "1d");
     return data;
 };
 
 async function get1wQuotes() {
-    const data = await getFund("1664150400", "1669420800", "5d");
+    const data = await getFund("1664150400", "1693353600", "5d");
     return data;
 };
 
 async function get1mQuotes() {
-    const data = await getFund("1664150400", "1669420800", "22d");
+    const data = await getFund("1664150400", "1693353600", "30d");
+    console.log("30d is " + JSON.stringify(data))
     return data;
 };//暂时无法拿到数据
 
@@ -40,6 +41,6 @@ export async function candlestickChartData(frequency: string) {
     } else if (frequency === "1w") {
         return mockQuotes1w();
     }  else if (frequency === "1m") {
-        return mockQuotes1m;
+        return mockQuotes1m();
     }
 }
