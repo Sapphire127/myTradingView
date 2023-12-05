@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export function dataAdaptation(data: string) {
 
     const jsonObj = JSON.parse(data);
@@ -5,10 +7,8 @@ export function dataAdaptation(data: string) {
 
     for (const key in jsonObj) {
 	    if (Object.prototype.hasOwnProperty.call(jsonObj, key)) {
-		    jsonObj[key].time = key;
+		    jsonObj[key].time = moment(Number(key)).format("yyyy-MM-DD");
 		    result.push(jsonObj[key]);
-
-            console.log("res:" + JSON.stringify(result))
 	    }
     }
     return result;

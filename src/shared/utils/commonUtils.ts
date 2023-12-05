@@ -5,7 +5,7 @@ export async function getRequest(
 	path: string,
 ) {
 	try {
-		const data = await axios.get<any>(path, { baseURL });
+		const { data } = await axios.get<any>(path, { baseURL });
 		return data;
 	} catch (error) {
 		console.error("post request error:", error);
