@@ -1,14 +1,15 @@
 <script setup>
 import { candlestickChartData } from './candlestickChartData';
 import { ref } from 'vue';
-import moment from "moment";
 
 const props = defineProps ({
     frequency: String,
 })
 
-const data = ref(candlestickChartData(props.frequency));
-const nowData = ref(data.value[data.value.length - 1]);
+const nowData = ref({});
+candlestickChartData(props.frequency).then(quotes => {
+    nowData.value = quotes[quotes.length - 1]
+});
 </script>
 
 <template>
@@ -40,7 +41,7 @@ const nowData = ref(data.value[data.value.length - 1]);
             </div>
             <div class="time">
                 <div class="rightViewName">时</div>
-                <div class="rightViewNumber">{{ moment(nowData.time * 1000).format('YYYY-MM-DD') }}</div>
+                <div class="rightViewNumber">{{ nowData.time}}</div>
             </div>
         </div>
     </div>

@@ -3,19 +3,16 @@ import { ref } from 'vue';
 import TradingData from './TradingData.vue';
 import CandlestickChart from './CandlestickChart.vue';
 
-const frequency = ref("10m");
+const frequency = ref("1d");
 
-function switchTo10m() {
-    frequency.value = "10m";
-}
-function switchTo1h() {
-    frequency.value = "1h";
-}
 function switchTo1d() {
     frequency.value = "1d";
 }
 function switchTo1w() {
     frequency.value = "1w";
+}
+function switchTo1m() {
+    frequency.value = "1m";
 }
 </script>
 
@@ -24,10 +21,9 @@ function switchTo1w() {
         <TradingData :frequency="frequency" :key="frequency" />
         <CandlestickChart :frequency="frequency" :key="frequency" />
         <div class="switchButton">
-            <button @click="switchTo10m">10m</button>
-            <button @click="switchTo1h">1h</button>
             <button @click="switchTo1d">1d</button>
             <button @click="switchTo1w">1w</button>
+            <button @click="switchTo1m">1m</button>
         </div>
     </div>
 </template>

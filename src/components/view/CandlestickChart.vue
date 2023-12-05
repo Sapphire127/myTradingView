@@ -18,8 +18,10 @@ import LWChart from './options-api/LWChart.vue';
 
 const props = defineProps ({
     frequency: String,
-})
-const data = ref(candlestickChartData(props.frequency));
+});
+
+const data = ref([]);
+candlestickChartData(props.frequency).then(quotes => data.value = quotes);
 const seriesOptions = ref({
 	color: 'rgb(45, 77, 205)',
 });

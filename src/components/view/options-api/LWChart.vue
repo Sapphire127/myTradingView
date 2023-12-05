@@ -59,15 +59,18 @@ export default {
                 vertLines: { color: '#444' },
                 horzLines: { color: '#444' },
             },
+            localization: {
+                dateFormat: 'yyyy-MM-dd',
+                locale: 'en-US',
+            },
+            timeScale: {
+                timeVisible: true,
+            secondsVisible: false,
+            },
         });
-		addSeriesAndData(this.type, this.seriesOptions, this.data);
-        chart.addHistogramSeries({
-            color: 'rgba(4, 111, 232, 1)',
-            lineWidth: 2,
-        }).setData(turnoverChartData(this.frequency));
+        addSeriesAndData(this.type, this.seriesOptions, this.data);
 
-		chart.timeScale().fitContent();
-
+        chart.timeScale().fitContent();
 		if (this.autosize) {
 			window.addEventListener('resize', () =>
 				resizeHandler(this.$refs.chartContainer)
@@ -109,6 +112,10 @@ export default {
 		},
 		data(newData) {
 			if (!series) return;
+            chart.addHistogramSeries({
+                color: 'rgba(4, 111, 232, 1)',
+                lineWidth: 2,
+            }).setData(turnoverChartData(newData));
 			series.setData(newData);
 		},
 		chartOptions(newOptions) {
