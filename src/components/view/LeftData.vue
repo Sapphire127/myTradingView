@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router';
+const route = useRoute();
+//更改位置，获取数据的code也从url读取
 </script>
 
 <template>
     <div class="leftData">
         <div class="number">
-            605028
+            {{ route.query.code }}
         </div>
     </div>
 </template>
