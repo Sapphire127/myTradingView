@@ -7,12 +7,12 @@ async function get1dQuotes() {
 };
 
 async function get1wQuotes() {
-    const data = await getFund("1664150400", "1669420800", "1w");
+    const data = await getFund("1664150400", "1669420800", "5d");
     return data;
-};//暂时无法拿到数据
+};
 
 async function get1mQuotes() {
-    const data = await getFund("1664150400", "1669420800", "1m");
+    const data = await getFund("1664150400", "1669420800", "22d");
     return data;
 };//暂时无法拿到数据
 
