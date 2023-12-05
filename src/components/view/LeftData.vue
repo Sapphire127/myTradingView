@@ -3,11 +3,8 @@
 
 <template>
     <div class="leftData">
-        <div class="name">
-            贵州茅台
-        </div>
         <div class="number">
-            600519.SH
+            605028
         </div>
     </div>
 </template>
@@ -21,10 +18,6 @@
     float:left;
     display:inline;
     font-size: 20px;
-}
-
-.name {
-    height: 30px;
 }
 
 .number {

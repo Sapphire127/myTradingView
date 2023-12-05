@@ -1,5 +1,5 @@
 export function turnoverChartData(data: any) {
-    // const data = await candlestickChartData(frequency);
+
     const arr: { time: string; value: number }[] = [];
 
     if (data) {
