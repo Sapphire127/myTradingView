@@ -1,6 +1,6 @@
 <script>
 import { createChart } from 'lightweight-charts';
-import { turnoverChartData } from '../turnoverChartData';
+import { tweakChartVolume } from './dataAdaptation';
 
 // Lightweight Chart instances are stored as normal JS variables
 // If you need to use a ref then it is recommended that you use `shallowRef` instead
@@ -40,11 +40,8 @@ export default {
 			default: true,
 			type: Boolean,
 		},
-		seriesOptions: {
-			type: Object,
-		},
         frequency: {
-            default: "10m",
+            default: "1d",
             type: String
         },
 	},
@@ -116,7 +113,7 @@ export default {
             chart.addHistogramSeries({
                 color: 'rgba(4, 111, 232, 1)',
                 lineWidth: 2,
-            }).setData(turnoverChartData(newData));
+            }).setData(tweakChartVolume(newData));
 			series.setData(newData);
 		},
 		chartOptions(newOptions) {

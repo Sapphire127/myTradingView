@@ -1,14 +1,14 @@
 <script setup>
-import { candlestickChartData } from './candlestickChartData';
+import { quotesOf } from './quoteSource';
 import { ref } from 'vue';
 
 const props = defineProps ({
     frequency: String,
 })
 
-const nowData = ref({});
-candlestickChartData(props.frequency).then(quotes => {
-    nowData.value = quotes[quotes.length - 1]
+const instantQuote = ref({});
+quotesOf(props.frequency).then(quotes => {
+    instantQuote.value = quotes[quotes.length - 1]
 });
 </script>
 
@@ -17,31 +17,31 @@ candlestickChartData(props.frequency).then(quotes => {
         <div>
             <div class="close">
                 <div class="rightViewName">收</div>
-                <div class="rightViewNumber">{{ nowData.close }}</div>
+                <div class="rightViewNumber">{{ instantQuote.close }}</div>
             </div>
             <div class="open">
                 <div class="rightViewName">开</div>
-                <div class="rightViewNumber">{{ nowData.open }}</div>
+                <div class="rightViewNumber">{{ instantQuote.open }}</div>
             </div>
         </div>
         <div>
             <div class="low">
                 <div class="rightViewName">低</div>
-                <div class="rightViewNumber">{{ nowData.low }}</div>
+                <div class="rightViewNumber">{{ instantQuote.low }}</div>
             </div>
             <div class="high">
                 <div class="rightViewName">高</div>
-                <div class="rightViewNumber">{{ nowData.high }}</div>
+                <div class="rightViewNumber">{{ instantQuote.high }}</div>
             </div>
         </div>
         <div>
             <div class="money">
                 <div class="rightViewName">额</div>
-                <div class="rightViewNumber">{{ nowData.money }}</div>
+                <div class="rightViewNumber">{{ instantQuote.money }}</div>
             </div>
             <div class="time">
                 <div class="rightViewName">时</div>
-                <div class="rightViewNumber">{{ nowData.time}}</div>
+                <div class="rightViewNumber">{{ instantQuote.time}}</div>
             </div>
         </div>
     </div>
@@ -78,4 +78,4 @@ candlestickChartData(props.frequency).then(quotes => {
     float:left;
     display:inline;
 }
-</style>
+</style>./quoteSource

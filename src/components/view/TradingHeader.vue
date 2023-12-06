@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import LeftData from './LeftData.vue';
-import RightData from './RightData.vue';
+import LeftHeader from './LeftHeader.vue';
+import RightHeader from './RightHeader.vue';
 
 defineProps ({
     frequency: String,
@@ -10,8 +10,8 @@ defineProps ({
 
 <template>
     <div class="data">
-        <LeftData :code="$props.code" />
-        <RightData :frequency="$props.frequency" />
+        <LeftHeader :code="$props.code" />
+        <RightHeader :frequency="$props.frequency" />
     </div>
 </template>
 

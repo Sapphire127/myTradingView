@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import TradingData from './TradingData.vue';
+import TradingHeader from './TradingHeader.vue';
 import CandlestickChart from './CandlestickChart.vue';
 // import { useRoute } from 'vue-router';
 
@@ -24,7 +24,7 @@ function switchTo1m() {
 
 <template>
     <div class="tradingView ">
-        <TradingData :frequency="frequency" :code="code" :key="frequency" />
+        <TradingHeader :frequency="frequency" :code="code" :key="frequency" />
         <CandlestickChart :frequency="frequency" :key="frequency" />
         <div class="switchButton">
             <button @click="switchTo1d">1d</button>
