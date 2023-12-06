@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+import { computed, watch } from 'vue';
 import { quotesOf } from './quoteSource';
 import LWChart from './LWChart.vue';
 
@@ -8,7 +10,14 @@ const props = defineProps ({
 });
 
 const data = ref([]);
-quotesOf(props.frequency).then(quotes => data.value = quotes);
+const route = useRoute();
+const code = computed(() => String(route.query.code));
+const frequency = props.frequency;
+
+watch(code, newCode =>
+    quotesOf(newCode, frequency).then(quotes => data.value = quotes),
+);//frequency更新不刷新
+
 const chartType = ref('candlestick');
 </script>
 
@@ -18,7 +27,7 @@ const chartType = ref('candlestick');
 			:type="chartType"
 			:data="data"
 			:autosize="true"
-            :frequency="props.frequency"
+            :frequency="frequency"
 			ref="lwChart"
 		/>
 	</div>

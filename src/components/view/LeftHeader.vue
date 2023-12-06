@@ -1,13 +1,15 @@
 <script setup lang="ts">
-const props = defineProps ({
-    code: String,
-})
+import { useRoute } from 'vue-router';
+import { computed } from 'vue';
+
+const route = useRoute();
+const code = computed(() => String(route.query.code));
 </script>
 
 <template>
     <div class="leftData">
         <div class="number">
-            {{ props.code }}
+            {{ code }}
         </div>
     </div>
 </template>

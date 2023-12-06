@@ -4,13 +4,12 @@ import RightHeader from './RightHeader.vue';
 
 defineProps ({
     frequency: String,
-    code: String,
 })
 </script>
 
 <template>
     <div class="data">
-        <LeftHeader :code="$props.code" />
+        <LeftHeader />
         <RightHeader :frequency="$props.frequency" />
     </div>
 </template>

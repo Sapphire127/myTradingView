@@ -1,15 +1,20 @@
-<script setup>
+<script setup lang="ts">
 import { quotesOf } from './quoteSource';
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+import { computed, watch } from 'vue';
+
+const route = useRoute();
+const code = computed(() => String(route.query.code));
 
 const props = defineProps ({
     frequency: String,
-})
-
-const instantQuote = ref({});
-quotesOf(props.frequency).then(quotes => {
-    instantQuote.value = quotes[quotes.length - 1]
 });
+
+const instantQuote = ref({} as { close: string, open: string, low: string, high: string, money: string, time: string });
+watch(code, newCode => quotesOf(newCode, props.frequency).then(quotes => {
+    instantQuote.value = quotes[quotes.length - 1] as any
+}));
 </script>
 
 <template>
@@ -78,4 +83,4 @@ quotesOf(props.frequency).then(quotes => {
     float:left;
     display:inline;
 }
-</style>./quoteSource
+</style>
