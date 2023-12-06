@@ -2,13 +2,13 @@
 import { ref } from 'vue';
 import TradingData from './TradingData.vue';
 import CandlestickChart from './CandlestickChart.vue';
-import { useRoute } from 'vue-router';
+// import { useRoute } from 'vue-router';
 
-const route = useRoute();
-const code = route.query.code;
-
-console.log("+++++++++++++ " + (code))
-console.log("------------- " + typeof(code))
+// const route = useRoute();
+// const code = route.query.code;
+const code = "600595";
+// console.log("+++++++++++++ " + (code))
+// console.log("------------- " + typeof(code))
 const frequency = ref("1d");
 
 function switchTo1d() {
