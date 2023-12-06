@@ -2,7 +2,13 @@
 import { ref } from 'vue';
 import TradingData from './TradingData.vue';
 import CandlestickChart from './CandlestickChart.vue';
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
+const code = route.query.code;
+
+console.log("+++++++++++++ " + (code))
+console.log("------------- " + typeof(code))
 const frequency = ref("1d");
 
 function switchTo1d() {
@@ -18,7 +24,7 @@ function switchTo1m() {
 
 <template>
     <div class="tradingView ">
-        <TradingData :frequency="frequency" :key="frequency" />
+        <TradingData :frequency="frequency" :code="code" :key="frequency" />
         <CandlestickChart :frequency="frequency" :key="frequency" />
         <div class="switchButton">
             <button @click="switchTo1d">1d</button>

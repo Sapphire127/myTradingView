@@ -4,12 +4,13 @@ import RightData from './RightData.vue';
 
 defineProps ({
     frequency: String,
+    code: String,
 })
 </script>
 
 <template>
     <div class="data">
-        <LeftData />
+        <LeftData :code="$props.code" />
         <RightData :frequency="$props.frequency" />
     </div>
 </template>
