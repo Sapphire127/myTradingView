@@ -2,24 +2,20 @@
 import { createChart } from 'lightweight-charts';
 import { tweakChartVolume } from './dataAdaptation';
 
-// Lightweight Chart instances are stored as normal JS variables
-// If you need to use a ref then it is recommended that you use `shallowRef` instead
 let series;
 let chart;
 
-// Function to get the correct series constructor name for current series type.
 function getChartSeriesConstructorName(type) {
 	return `add${type.charAt(0).toUpperCase() + type.slice(1)}Series`;
 }
 
-// Creates the chart series and sets the data.
 const addSeriesAndData = (type, seriesOptions, data) => {
 	const seriesConstructor = getChartSeriesConstructorName(type);
 	series = chart[seriesConstructor](seriesOptions);
 	series.setData(data);
 };
 
-// Auto resizes the chart when the browser window is resized.
+// 调整浏览器窗口大小时自动调整图表大小.
 const resizeHandler = container => {
 	if (!chart || !container) return;
 	const dimensions = container.getBoundingClientRect();
@@ -46,7 +42,6 @@ export default {
         },
 	},
 	mounted() {
-		// Create the Lightweight Charts Instance using the container ref.
 		chart = createChart(this.$refs.chartContainer, {
             layout: {
                 background: { color: '#222' },
@@ -84,17 +79,6 @@ export default {
 		}
 		window.removeEventListener('resize', resizeHandler);
 	},
-	/*
-	 * Watch for changes to any of the component properties.
-	 *
-	 * If an options property is changed then we will apply those options
-	 * on top of any existing options previously set (since we are using the
-	 * `applyOptions` method).
-	 *
-	 * If there is a change to the chart type, then the existing series is removed
-	 * and the new series is created, and assigned the data.
-	 *
-	 */
 	watch: {
 		autosize(enabled) {
 			if (!enabled) {
