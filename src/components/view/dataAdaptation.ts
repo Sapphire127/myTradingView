@@ -17,17 +17,17 @@ export function convertTime(data: string) {
 export function tweakChartVolume(data: any) {
 
     const arr: { time: string; value: number }[] = [];
-
+    const volumeArr: number[] = [];
     if (data) {
-        // const max = Math.max(...data.map((q: { value: any; }) => q.value));
-
-        // console.log("max is " + max);
-        //找到一个最大值，加一个系数调整
+        data.forEach(function(item: { time: any; volume: number; }) {
+            volumeArr.push(item.volume)
+        });
+        const max = Math.max.apply(null, volumeArr);
 
         data.forEach(function(item: { time: any; volume: number; }) {
-            arr.push({ time: String(item.time), value: item.volume / 10000000 })
+            arr.push({ time: String(item.time), value: item.volume / max * 10 })
         });
     }
 
-	return arr;
-}//三个时间段分开写
+	return arr;//纵坐标因为max参数调整有问题？
+}
