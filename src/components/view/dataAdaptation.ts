@@ -29,5 +29,5 @@ export function tweakChartVolume(data: any) {
         });
     }
 
-	return arr;//纵坐标因为max参数调整有问题？
+	return arr; //纵坐标因为max参数调整不准确
 }
