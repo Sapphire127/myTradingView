@@ -2,7 +2,8 @@
 npm run dev
 
 # 查找数据
-在url后添加 "/?code=" + "对应code"(如605028)
+打开该网址： http://localhost:5173/
+在url后添加 "/?code=" + "对应股票code"(如605028)
 点击最下方按钮可切换对应视图
 
 # demo的不足
